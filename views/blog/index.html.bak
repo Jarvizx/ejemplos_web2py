@@ -1,0 +1,17 @@
+{{extend 'layout.html'}}
+<h1>
+    Ultimos 
+</h1>
+
+<table class="table">
+    {{for row in rows:}}
+    <tr>
+        <td>
+            <a href="{{=URL('show', args=row.id)}}">{{=row.title}}</a>
+        </td>
+        <td>
+            {{=row.create_on}}
+        </td>
+    </tr>
+    {{pass}}
+</table>

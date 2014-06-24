@@ -1,0 +1,21 @@
+{{extend 'layout.html'}}
+<h1>{{=row_post.title}}</h1>
+<i>fecha del post: {{=row_post.created_on}} de {{=row_post.created_by.first_name}}</i>
+<p>
+
+    {{=MARKMIN(row_post.body, sanitize=True)}}
+
+    {{for comment in comments:}}
+        <div class="well">
+         {{=comment.created_by.first_name}}  {{=comment.created_by.last_name}}
+         on   {{=comment.created_on}}  says
+            <i>{{=comment.body}}</i>
+        </div>
+    {{pass}}
+
+    {{=form}}
+    <!--http://www.web2py.com/init/static/markmin.html-->
+    <!--{{=MARKMIN(row_post.body, sanitize=True)}}-->
+
+    <!--{{=XML(row_post.body, sanitize=True)}}-->
+</p>
